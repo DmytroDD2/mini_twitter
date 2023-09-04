@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'users.apps.UsersConfig',
+    'posts.apps.PostsConfig',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -56,7 +58,8 @@ ROOT_URLCONF = 'mini_twitter.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [r'D:\програмування\Python\Django\mini_twiter\mini_twitter\posts\template',
+                 r'D:\програмування\Python\Django\mini_twiter\mini_twitter\posts\template\posts\comments_lists.html'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -69,7 +72,10 @@ TEMPLATES = [
     },
 ]
 
+
 WSGI_APPLICATION = 'mini_twitter.wsgi.application'
+
+
 
 
 # Database
@@ -77,8 +83,12 @@ WSGI_APPLICATION = 'mini_twitter.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'mini_twitter_db',
+        'USER': 'mini_twitter',
+        'PASSWORD': 'password',
+        'HOST': 'localhost',
+        'PORT': '5432'
     }
 }
 
